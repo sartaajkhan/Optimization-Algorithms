@@ -1,1 +1,6 @@
-multivar
+This file will consist of numerical optimization methods and algorithms when working with multivariable functions:
+F = F(X1,X2,...,XN)
+
+There are two forms of optimization of interest: constrained and unconstrained.
+Unconstrained numerical methods available in this repository only involve the gradient ascent and descent algorithms. More to come.
+Constrained numerical methods are also currently in development.
