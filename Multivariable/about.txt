@@ -1,6 +1,24 @@
 This file will consist of numerical optimization methods and algorithms when working with multivariable functions:
 F = F(X1,X2,...,XN)
 
+MATH OPERATORS THESE FILES ARE COMPATIBLE WITH:
+math_ops = {'sqrt':sqrt,'log':log,'sin':sin,'cos':cos,'tan':tan,
+                'asin':asin, 'acos':acos, 'atan':atan, 'asinh':asinh, 'acosh':acosh,
+                'atanh':atanh, 'pow':pow, 'exp':exp,
+                'fabs':fabs, 'factorial': factorial, 'floor': floor}
+
+REQUIREMENTS:
+1. Partial derivative computations
+2. Gradient computation
+3. Jacobian matrix computation
+4. Hessian matrix computation
+
 There are two forms of optimization of interest: constrained and unconstrained.
-Unconstrained numerical methods available in this repository only involve the gradient ascent and descent algorithms. More to come.
-Constrained numerical methods are also currently in development.
+UNCONSTRAINED ALGORITHMS:
+1. GRADIENT DESCENT
+2. GRADIENT ASCENT
+
+CONSTRAINED ALGORITHMS CONTENT:
+1. GRADIENT ASCENT/DESCENT WITH CONSTANT BOUNDS: {X1≤X≤X2, Y1≤Y≤Y2, ....}
+
+Algorithms are still in development. Updated: Tuesday May 4th, 2021
