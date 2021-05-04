@@ -11,6 +11,11 @@ def derivative_single(func,x,diff):
     
     """
     h = 1e-10
+    math_ops = {'sqrt':sqrt,'log':log,'sin':sin,'cos':cos,'tan':tan,
+                'asin':asin, 'acos':acos, 'atan':atan, 'asinh':asinh, 'acosh':acosh,
+                'atanh':atanh, 'pow':pow, 'exp':exp,
+                'fabs':fabs, 'factorial': factorial, 'floor': floor}
+    
     seg1 = eval(func, {diff: x+h})
     seg2 = eval(func, {diff: x})
     dydx = (seg1-seg2)/h
@@ -25,6 +30,10 @@ def outputfunc(func,x,var_name):
     x: variable substituted into function (int/float)
     var_name: variable name to be substituted in (str)
     """
+    math_ops = {'sqrt':sqrt,'log':log,'sin':sin,'cos':cos,'tan':tan,
+                'asin':asin, 'acos':acos, 'atan':atan, 'asinh':asinh, 'acosh':acosh,
+                'atanh':atanh, 'pow':pow, 'exp':exp,
+                'fabs':fabs, 'factorial': factorial, 'floor': floor}
     
     y = eval(func, {var_name: x})
     return y
@@ -36,6 +45,10 @@ def negativeOut(func,x,var_name):
     x: variable substituted into function (int/float)
     var_name: variable name to be substituted in (str)
     """
+    math_ops = {'sqrt':sqrt,'log':log,'sin':sin,'cos':cos,'tan':tan,
+                'asin':asin, 'acos':acos, 'atan':atan, 'asinh':asinh, 'acosh':acosh,
+                'atanh':atanh, 'pow':pow, 'exp':exp,
+                'fabs':fabs, 'factorial': factorial, 'floor': floor}
     
     y = -1*eval(func, {var_name: x})
     return y
