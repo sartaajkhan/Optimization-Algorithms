@@ -16,8 +16,8 @@ def derivative_single(func,x,diff):
                 'atanh':atanh, 'pow':pow, 'exp':exp,
                 'fabs':fabs, 'factorial': factorial, 'floor': floor}
     
-    seg1 = eval(func, {diff: x+h})
-    seg2 = eval(func, {diff: x})
+    seg1 = eval(func, {diff: x+h}, math_ops)
+    seg2 = eval(func, {diff: x}, math_ops)
     dydx = (seg1-seg2)/h
     
     return dydx
@@ -35,7 +35,7 @@ def outputfunc(func,x,var_name):
                 'atanh':atanh, 'pow':pow, 'exp':exp,
                 'fabs':fabs, 'factorial': factorial, 'floor': floor}
     
-    y = eval(func, {var_name: x})
+    y = eval(func, {var_name: x}, math_ops)
     return y
 
 def negativeOut(func,x,var_name):
@@ -50,5 +50,5 @@ def negativeOut(func,x,var_name):
                 'atanh':atanh, 'pow':pow, 'exp':exp,
                 'fabs':fabs, 'factorial': factorial, 'floor': floor}
     
-    y = -1*eval(func, {var_name: x})
+    y = -1*eval(func, {var_name: x}, math_ops)
     return y
