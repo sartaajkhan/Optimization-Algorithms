@@ -23,4 +23,4 @@ UNCONSTRAINED ALGORITHMS:
 CONSTRAINED ALGORITHMS CONTENT:
 1. GRADIENT ASCENT/DESCENT WITH CONSTANT BOUNDS: {X1≤X≤X2, Y1≤Y≤Y2, ....}
 
-Algorithms are still in development. Updated: Tuesday May 4th, 2021
+Algorithms are still in development. Updated: Tuesday May 5th, 2021
