@@ -141,3 +141,15 @@ def Hessian(func,X,Y):
         hessian.append(secondGrad(func,X,Y,D))
     
     return hessian
+
+def inverseMatrix(M):
+    """
+    function: return inverse of matrix
+    input: matrix; det(M) =/= 0
+    output: inv(M)
+    """
+    
+    H = np.array(M)
+    Hinv = np.linalg.inv(H)
+    
+    return Hinv.tolist()
