@@ -1,3 +1,5 @@
+Developed by: Sartaaj Khan
+
 This repository consists of numerous numerical methods and algorithms which are used for the optimization of objective functions. It consists of
 both univariate and multivariate functions. The main objective is to expose the user to the numerous algorithms that are available, rather than
 developing algebraic equations to compute the approximate optimal coordinates of a univariate/multivariate function. Another objective that I want to 
