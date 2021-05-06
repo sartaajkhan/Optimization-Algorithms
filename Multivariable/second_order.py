@@ -3,6 +3,7 @@ from pderivative import multiOut
 from pderivative import grad
 from multivar_optimization import multiGrad
 from math import *
+import numpy as np
 
 def secondPartial(func,X,Y,diff1,diff2):
     """
