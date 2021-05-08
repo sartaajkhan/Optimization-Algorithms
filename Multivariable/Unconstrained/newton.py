@@ -175,7 +175,7 @@ def mag(x):
 
 def GlobalNewton(func,X,Y):
     """
-    utilize the Quasi-Newton algorithm to find optimum coordinates
+    utilize the Global Newton algorithm to find optimum coordinates
     steps:
     1. choose a parameter c; c > 0
     2. choose some initial guess Xo (chosen by user)
