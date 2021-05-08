@@ -3,6 +3,7 @@ from pderivative import multiOut
 from pderivative import grad
 from multivar_optimization import multiGrad
 import math
+from newton import NewtonMethod
 
 def Jacobian(func,X,Y):
     """
