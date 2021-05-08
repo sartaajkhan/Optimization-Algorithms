@@ -5,6 +5,7 @@ SINGLE VARIABLE OPTIMIZATION ALGORITHMS:
 3. INTERVAL SEARCH
 4. SWANN'S BRACKET
 5. POWELL'S METHOD
+6. GOLDEN SEARCH
 
 CREDITS:
 http://home.cc.umanitoba.ca/~lovetrij/cECE7670/Files/optim1.pdf
@@ -297,3 +298,33 @@ def PowellMethod(func,a1,delta,del_max,var):
             f_a = outputfunc(func,a2,var)
      
     return {'x coordinate: ': b2, 'y-coordinate: ': f_a}
+
+from math import *
+from derivative import outputfunc
+
+def GoldenSearch(func,X1,X2,var_name):
+    """
+    Uses Golden Search algorithm to find the X-coordinate to minimize f = f(X)
+    func: objective function (str)
+    X1: lower bound of initial interval guess (int)
+    X2: upper bound of initial interval guess (int)
+    var_name: variable string of interest (for example: 'x') (str)
+    """
+    
+    golden_ratio = (sqrt(5)+1)/2
+    
+    while abs(X2-X1) > 1e-12:
+        c = X2 - ((X2-X1)/golden_ratio)
+        d = X1 + ((X2-X1)/golden_ratio)
+        
+        f_c = outputfunc(func,c,var_name)
+        f_d = outputfunc(func,d,var_name)
+        
+        if f_c < f_d:
+            X2 = d
+        else:
+            X1 = c
+        
+    solution = (X2-X1)/2
+    
+    return solution
