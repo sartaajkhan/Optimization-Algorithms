@@ -166,3 +166,65 @@ def Marquardtv2(func,X,Y):
         
     
     return solutionC
+
+def mag(x): 
+    """
+    computes magnitude of vector [x1,x2,...,xN]
+    """
+    return sqrt(sum(i**2 for i in x))
+
+def GlobalNewton(func,X,Y):
+    """
+    utilize the Quasi-Newton algorithm to find optimum coordinates
+    steps:
+    1. choose a parameter c; c > 0
+    2. choose some initial guess Xo (chosen by user)
+    3. for k = {0,1,2,....,N}:
+    A) H*d(k) = -grad(f(x_k))
+        d(k) = -H.inv*grad(f(x_k))
+    B) if:
+            - (dot(grad(f(x(k))),d(k)))/(mag(f(x(k)))*d(k)) < c
+            set: d(k) = -grad(f(x(k)))
+    
+    C) set p_k = 1/2 (p_k > 0)
+    D) x(k+1) = x(k) + p(k)*d(k)
+    go back to (A) until error criteria is ultimately met
+    
+    """
+    c = 1
+    guess = Y
+    pk = 0.05
+    error = []
+    mean_error = 1
+    
+    while mean_error > 1e-12:
+        H = Hessian(func,X,guess)
+        Hinv = inverseMatrix(H)
+        H_new = []
+        
+        for k in Hinv:
+            H_new.append([x*-1 for x in k])
+        
+        gradF = grad(func,X,guess)
+        
+        dk = np.matmul(H_new,gradF).tolist()
+        
+        condition = -1*((np.dot(gradF,dk))/(mag(gradF)*mag(dk)))
+        
+        if condition < c:
+            pkdk = list(map((-pk).__mul__,gradF))
+        else:
+            pkdk = list(map((pk).__mul__,dk))
+        
+        solution = list(map(add,guess,pkdk))
+        
+        del error[:]
+        for k in range(0,len(solution)):
+            e = abs((solution[k]-guess[k])/guess[k])
+            error.append(e)
+        
+        mean_error = statistics.mean(error)
+        guess = solution
+    
+    
+    return solution
