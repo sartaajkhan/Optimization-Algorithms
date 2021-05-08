@@ -79,3 +79,37 @@ def multiGradConstraint(func,X,Y,constraint,option = None):
     
     elif (criteria == True):
         return solutionC
+
+def NewtonConstraint(func,X,Y,constraint):
+    """
+    task: calculate the optimum point for a multivariable function: F = F(x1,x2,...,xn)
+    func: objective function (str)
+    X: list of variables (strings) {x1,x2,...,xn}
+    Y: initial guess for the optimum value (list of int/floats)
+    constraint: [[x1,x2],[y1,y2]]
+    
+    output: {solution, mean error} (dict)
+    """
+    solutionC = list()
+    extrema = list()
+    c = None
+    criteria = True
+    
+    solution = NewtonMethod(func,X,Y)
+    
+    if len(constraint) == len(solution):
+        for k in range(0,len(constraint)):
+            if (solution[k] >= constraint[k][0]) and (solution[k] <= constraint[k][1]):
+                solutionC.append(solution[k])
+            else:
+                criteria = False
+
+    else:
+        raise ValueError("dim(constraint) is not equal to dim(solution)")
+    
+    
+    if (criteria == False):
+        print("There is no local maxima or minima within set of constraints established.")
+        
+    elif (criteria == True):
+        return solutionC
