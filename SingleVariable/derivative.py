@@ -1,6 +1,6 @@
 import numpy
 from scipy.misc import derivative
-import math
+from math import *
 
 
 def derivative_single(func,x,diff):
